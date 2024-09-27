@@ -1,6 +1,7 @@
 package com.mmd.library.configuration;
 
 import com.mmd.library.constant.RoleConstants;
+import com.mmd.library.constant.UrlConstants;
 import com.mmd.library.exception.EmailNotConfirmedException;
 import com.mmd.library.filter.JWTTokenGeneratorFilter;
 import com.mmd.library.filter.JWTTokenRefresher;
@@ -69,7 +70,7 @@ public class SecurityConfiguration {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.applyPermitDefaultValues();
-        configuration.setAllowedOrigins(List.of("https://localhost:3000")); // Allow all origins
+        configuration.setAllowedOrigins(List.of(UrlConstants.FRONTEND_URL)); // Allow all origins
         configuration.setAllowedMethods(List.of("GET","POST","PUT","PATCH","DELETE","OPTIONS")); // Allow all methods
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setExposedHeaders(List.of("Authorization"));//Exposing header from backend to frontend

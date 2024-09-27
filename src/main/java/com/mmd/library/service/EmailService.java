@@ -1,5 +1,6 @@
 package com.mmd.library.service;
 
+import com.mmd.library.constant.UrlConstants;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.core.io.ClassPathResource;
@@ -39,7 +40,7 @@ public class EmailService {
 		}
 
 		String htmlContent = new String(bdata, StandardCharsets.UTF_8);
-		String htmlContentWithLink = htmlContent.replace("[Verification URL]", "https://localhost/verify-email/%s".formatted(token));
+		String htmlContentWithLink = htmlContent.replace("[Verification URL]", "%s/verify-email/%s".formatted(UrlConstants.BACKEND_URL, token));
 
 		MimeMessage message = javaMailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(message);

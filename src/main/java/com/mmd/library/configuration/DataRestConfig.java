@@ -1,5 +1,6 @@
 package com.mmd.library.configuration;
 
+import com.mmd.library.constant.UrlConstants;
 import com.mmd.library.entity.Book;
 import com.mmd.library.entity.History;
 import com.mmd.library.entity.Message;
@@ -19,7 +20,7 @@ public class DataRestConfig implements RepositoryRestConfigurer {
         config.setBasePath("api");
 
         //CORS Configuration
-        String allowedOrigin = "https://localhost:3000";
+        String allowedOrigin = UrlConstants.FRONTEND_URL;
         cors.addMapping(config.getBasePath() + "/books/**")
                 .allowedOrigins(allowedOrigin);
         cors.addMapping(config.getBasePath() + "/reviews/**")
